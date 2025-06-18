@@ -8,6 +8,7 @@ Controller: Logitech Gamepad F310
 
 package com.disastrousdata.controllers;
 
+
 public enum ControllerButtons implements Controller {
     A(0),
     B(1),
@@ -29,5 +30,30 @@ public enum ControllerButtons implements Controller {
     @Override
     public int getButtonId() {
         return buttonId;
+    }
+
+      /** Represents an axis on an XboxController. */
+    public enum Axis {
+        /** Left X axis. */
+        LeftX(0),
+        /** Right X axis. */
+        RightX(4),
+        /** Left Y axis. */
+        LeftY(1),
+        /** Right Y axis. */
+        RightY(5),
+        /** Left trigger. */
+        LeftTrigger(2),
+        /** Right trigger. */
+        RightTrigger(3);
+        
+
+        /** Axis value. */
+        public final int value;
+
+        Axis(int value) {
+            this.value = value;
+        }
+
     }
 }

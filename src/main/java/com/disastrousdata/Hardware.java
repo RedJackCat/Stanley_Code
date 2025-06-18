@@ -13,11 +13,13 @@ checks to be made on the values being set to the motors.
 
 package com.disastrousdata;
 
+import java.lang.ModuleLayer.Controller;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 //import com.revrobotics.spark.SparkBase.IdleMode;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.kauailabs.navx.frc.AHRS; 
+//import com.kauailabs.navx.frc.AHRS; 
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
@@ -27,6 +29,7 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 
 public class Hardware {
 
@@ -52,8 +55,10 @@ public class Hardware {
     // ==========================
     //         Controls
     // ==========================
-    public Joystick Controller;
-    public Joystick Slider;
+    //public Joystick Controller;
+    //public Joystick Slider;
+    public XboxController Controller;
+    public XboxController Slider; 
 
     // ==========================
     //         Pneumatics
@@ -78,11 +83,13 @@ public class Hardware {
 
         //Change for Algae Intake, Coral flap, coral claw(Ib)
         ClawMotor = new WPI_TalonSRX(2);
+        // Arm for Algae
         ArmMotor = new WPI_TalonSRX(4);
 
         //Controller Stuff same as 2025
-        Controller = new Joystick(0);
-        Slider = new Joystick(3);
+        Controller = new XboxController(1);
+        //Slider = new Joystick(3);
+        
 
         //Use new SparkMaxConfig type to configue parameters
         /*
@@ -96,6 +103,7 @@ public class Hardware {
         LeftMotor1.setIdleMode(IdleMode.kBrake);
         LeftMotor2.setIdleMode(IdleMode.kBrake);
         */
+
         //Copy and pasted from Stephen code
         SparkBaseConfig driveConfig = new SparkMaxConfig().idleMode(SparkBaseConfig.IdleMode.kBrake);
         RightMotor1.configure(driveConfig.inverted(false), SparkBase.ResetMode.kResetSafeParameters, SparkBase.PersistMode.kNoPersistParameters);
@@ -106,7 +114,7 @@ public class Hardware {
         //Solenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 0, 1);
 
         //LimitSwitch = new DigitalInput(9);
-        NavX = new AHRS();
+        //NavX = new AHRS();
         
     }
 

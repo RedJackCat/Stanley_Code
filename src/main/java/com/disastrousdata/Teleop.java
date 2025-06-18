@@ -117,8 +117,8 @@ public class Teleop {
             drive.setClawPower(0);
         }
 
-        double fb = drive.Controller.getY() + axis1Offset / 2;
-        double lr = drive.Controller.getX() + axis0Offset / 2;
+        double fb = drive.Controller.getLeftY() + axis1Offset / 2;
+        double lr = drive.Controller.getRightX() + axis0Offset / 2;
         lr = lr * 0.5;
         double leftDriveValue = fb - lr;
         double rightDriveValue = fb + lr;

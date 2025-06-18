@@ -12,15 +12,26 @@ Add any new actions to this class with their respective binding.
 package com.disastrousdata;
 
 import com.disastrousdata.controllers.Controller;
+import com.disastrousdata.controllers.ControllerButtons;
 import com.disastrousdata.controllers.JoystickButtons;
 
 public enum Keybinds {
+    /*
     INTAKE_TOGGLE(JoystickButtons.TRIGGER),
     INTAKE_READY(JoystickButtons.SIDE_BUTTON),
     CLAW_DOWN(JoystickButtons.TOP_LEFT_5),
     CLAW_UP(JoystickButtons.BOTTOM_LEFT_3),
     ARM_UP(JoystickButtons.TOP_RIGHT_6),
     ARM_DOWN(JoystickButtons.BOTTOM_RIGHT_4);
+    */
+
+    INTAKE_TOGGLE(ControllerButtons.X),
+    INTAKE_READY(ControllerButtons.Y),
+    CLAW_DOWN(ControllerButtons.LEFT_BUMPER),
+    CLAW_UP(ControllerButtons.RIGHT_BUMPER),
+    ARM_UP(ControllerButtons.A),
+    ARM_DOWN(ControllerButtons.B);
+
 
     public final int buttonId;
 

@@ -11,6 +11,7 @@ Add more hardware to this class as needed.
 package com.disastrousdata;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 
 // Main class for controlling the robot, all robot functions should use this.
@@ -28,7 +29,8 @@ public class TankDrive {
     public MotorController Claw;
 
     public Pneumatics Pneumatics;
-    public Joystick Controller;
+    //public Joystick Controller;
+    public XboxController Controller;
 
     public Hardware Hardware;
 
@@ -49,6 +51,7 @@ public class TankDrive {
         IntakeBottom = hardware.BottomIntakeMotor;
         
         // Reuse these for Coral and Algae
+        // Arm for Algae
         Arm = hardware.ArmMotor;
         Claw = hardware.ClawMotor;
 
