@@ -13,7 +13,7 @@ checks to be made on the values being set to the motors.
 
 package com.disastrousdata;
 
-import java.lang.ModuleLayer.Controller;
+//import java.lang.ModuleLayer.Controller;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 //import com.revrobotics.spark.SparkBase.IdleMode;
@@ -28,7 +28,7 @@ import com.studica.frc.AHRS;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
 public class Hardware {
