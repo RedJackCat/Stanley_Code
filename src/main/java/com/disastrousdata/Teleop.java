@@ -41,8 +41,7 @@ public class Teleop {
     private final List<Integer> pressedButtons = new ArrayList<>();
 
     // STATE VARIABLES
-    private boolean isIntakeOn = false;
-    private boolean hasGamePiece = false;
+    // none
 
     private boolean wasJustPressed(Keybinds bind) {
         return justPressed.contains(bind.buttonId);
@@ -81,40 +80,15 @@ public class Teleop {
         // | ALL CODE GOES AFTER THIS SO THAT STOP LOGIC WORKS |
         // |---------------------------------------------------|
 
-        if (wasJustPressed(Keybinds.INTAKE_TOGGLE)) {
-            if (hasGamePiece) {  // Shoot it
-                hasGamePiece = false;
-                drive.SetIntakeMode(TankDrive.IntakeMode.SHOOT);
-            } else {  // Toggle intake mode
-                isIntakeOn = !isIntakeOn;
-                drive.SetIntakeMode(isIntakeOn ? TankDrive.IntakeMode.INTAKE : TankDrive.IntakeMode.OFF);
-            }
-        }
-
-        if (wasJustPressed(Keybinds.INTAKE_READY)) {  // TODO: Check Game piece detected with line break/limit switch
-            hasGamePiece = true;
-            Dash.set("hasGamePiece", true);
-            drive.SetIntakeMode(TankDrive.IntakeMode.CHARGE);
-        } else {
-            Dash.set("hasGamePiece", false);
-        }
-
-        final double ARM_SPEED = 0.8;
         if (isPressed(Keybinds.ARM_UP)) {
-            drive.setArmPower(ARM_SPEED);
+            drive.Arm.set(-0.1);
+            Dash.set("arm state", "-0.1");
         } else if (isPressed(Keybinds.ARM_DOWN)) {
-            drive.setArmPower(-ARM_SPEED);
+            drive.Arm.set(0.1);
+            Dash.set("arm state", "0.1");
         } else {
-            drive.setArmPower(0);
-        }
-
-        final double CLAW_SPEED = 0.5;
-        if (isPressed(Keybinds.CLAW_UP)) {
-            drive.setClawPower(CLAW_SPEED);
-        } else if (isPressed(Keybinds.CLAW_DOWN)) {
-            drive.setClawPower(-CLAW_SPEED);
-        } else {
-            drive.setClawPower(0);
+            drive.Arm.set(0);
+            Dash.set("arm state", "0.0");
         }
 
         double fb = drive.Controller.getLeftY() + axis1Offset / 2;
@@ -122,6 +96,7 @@ public class Teleop {
         lr = lr * 0.5;
         double leftDriveValue = fb - lr;
         double rightDriveValue = fb + lr;
+        Dash.set("lr", lr);
 
         states.LeftDriveMotors = leftDriveValue;
         states.RightDriveMotors = rightDriveValue;

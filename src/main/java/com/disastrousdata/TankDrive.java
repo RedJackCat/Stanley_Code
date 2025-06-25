@@ -20,15 +20,9 @@ public class TankDrive {
     private MotorController[] LeftMotors;
     private MotorController[] RightMotors;
 
-    // 2024 shooter
-    public MotorController IntakeTop;
-    public MotorController IntakeBottom;
-
     // Reuse for 2025 MRT changes
     public MotorController Arm;
-    public MotorController Claw;
 
-    public Pneumatics Pneumatics;
     //public Joystick Controller;
     public XboxController Controller;
 
@@ -45,18 +39,12 @@ public class TankDrive {
             hardware.RightMotor1,
             hardware.RightMotor2
         };
-
-        // not using
-        IntakeTop = hardware.TopIntakeMotor;
-        IntakeBottom = hardware.BottomIntakeMotor;
         
         // Reuse these for Coral and Algae
         // Arm for Algae
         Arm = hardware.ArmMotor;
-        Claw = hardware.ClawMotor;
 
         // not using pneumatics
-        Pneumatics = new Pneumatics(hardware.Solenoid);
         Controller = hardware.Controller;
     }
 
@@ -83,36 +71,6 @@ public class TankDrive {
         INTAKE,
         CHARGE,
         SHOOT
-    }
-
-    public void SetIntakeMode(IntakeMode mode) {
-        switch (mode) {
-            case OFF:
-                IntakeTop.set(0);
-                IntakeBottom.set(0);
-                Dash.set("intakemode", "off");
-                break;
-            case INTAKE:
-                IntakeTop.set(-0.3);
-                IntakeBottom.set(-0.3);
-                Dash.set("intakemode", "intake");
-                break;
-            case CHARGE:
-                IntakeTop.set(1);
-                IntakeBottom.set(0);
-                Dash.set("intakemode", "charge");
-                break;
-            case SHOOT:
-                IntakeTop.set(1);
-                IntakeBottom.set(1);
-                Dash.set("intakemode", "shoot");
-                break;
-        }
-    }
-
-    // reuse for coral intake
-    public void setClawPower(double s) {
-        Claw.set(s);
     }
 
     // reuse for algae intake. SHould not need to be changed

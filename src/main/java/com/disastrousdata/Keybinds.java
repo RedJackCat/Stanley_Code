@@ -25,10 +25,6 @@ public enum Keybinds {
     ARM_DOWN(JoystickButtons.BOTTOM_RIGHT_4);
     */
 
-    INTAKE_TOGGLE(ControllerButtons.X),
-    INTAKE_READY(ControllerButtons.Y),
-    CLAW_DOWN(ControllerButtons.LEFT_BUMPER),
-    CLAW_UP(ControllerButtons.RIGHT_BUMPER),
     ARM_UP(ControllerButtons.A),
     ARM_DOWN(ControllerButtons.B);
 

@@ -46,17 +46,11 @@ public class Hardware {
     // ==========================
     //        Other Motors
     // ==========================
-    public WPI_TalonSRX TopIntakeMotor;
-    public WPI_TalonSRX BottomIntakeMotor;
-
-    public WPI_TalonSRX ClawMotor;
-    public WPI_TalonSRX ArmMotor;
+    public SparkMax ArmMotor;
 
     // ==========================
     //         Controls
     // ==========================
-    //public Joystick Controller;
-    //public Joystick Slider;
     public XboxController Controller;
     public XboxController Slider; 
 
@@ -77,32 +71,19 @@ public class Hardware {
         RightMotor2 = new SparkMax(2, MotorType.kBrushed);
         LeftMotor1 = new SparkMax(3, MotorType.kBrushed);
         LeftMotor2 = new SparkMax(4, MotorType.kBrushed);
+        ArmMotor = new SparkMax(5, MotorType.kBrushless);
         // same for 2025 Lib
-        TopIntakeMotor = new WPI_TalonSRX(7);
-        BottomIntakeMotor = new WPI_TalonSRX(5);
+        // TopIntakeMotor = new WPI_TalonSRX(7);
+        // BottomIntakeMotor = new WPI_TalonSRX(5);
 
         //Change for Algae Intake, Coral flap, coral claw(Ib)
-        ClawMotor = new WPI_TalonSRX(2);
+        // ClawMotor = new WPI_TalonSRX(2);
         // Arm for Algae
-        ArmMotor = new WPI_TalonSRX(4);
+        // ArmMotor = new WPI_TalonSRX(4);
 
         //Controller Stuff same as 2025
-        Controller = new XboxController(1);
+        // Controller = new XboxController(1);
         //Slider = new Joystick(3);
-        
-
-        //Use new SparkMaxConfig type to configue parameters
-        /*
-        RightMotor2.setInverted(true);
-        RightMotor1.setInverted(true);
-        LeftMotor1.setInverted(false);
-        LeftMotor2.setInverted(false);
-
-        RightMotor2.setIdleMode(IdleMode.kBrake);
-        RightMotor1.setIdleMode(IdleMode.kBrake);
-        LeftMotor1.setIdleMode(IdleMode.kBrake);
-        LeftMotor2.setIdleMode(IdleMode.kBrake);
-        */
 
         //Copy and pasted from Stephen code
         SparkBaseConfig driveConfig = new SparkMaxConfig().idleMode(SparkBaseConfig.IdleMode.kBrake);
