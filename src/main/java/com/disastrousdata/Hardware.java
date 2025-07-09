@@ -28,6 +28,7 @@ import com.studica.frc.AHRS;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
@@ -82,7 +83,7 @@ public class Hardware {
         // ArmMotor = new WPI_TalonSRX(4);
 
         //Controller Stuff same as 2025
-        // Controller = new XboxController(1);
+        Controller = new XboxController(0);
         //Slider = new Joystick(3);
 
         //Copy and pasted from Stephen code

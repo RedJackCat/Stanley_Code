@@ -31,7 +31,7 @@ public class Teleop {
     private static final double stallThreshHold = 0.5;
 
     private static final int[] buttonIds = new int[] {
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
     };
 
     private double timeSinceLastTickTimestamp = 0;
@@ -80,6 +80,12 @@ public class Teleop {
         // | ALL CODE GOES AFTER THIS SO THAT STOP LOGIC WORKS |
         // |---------------------------------------------------|
 
+        String activeIds = "";
+        for (int id : pressedButtons) {
+            activeIds += id + ",";
+        }
+        Dash.set("activeIds", activeIds);
+
         if (isPressed(Keybinds.ARM_UP)) {
             drive.Arm.set(-0.1);
             Dash.set("arm state", "-0.1");
@@ -92,10 +98,10 @@ public class Teleop {
         }
 
         double fb = drive.Controller.getLeftY() + axis1Offset / 2;
-        double lr = drive.Controller.getRightX() + axis0Offset / 2;
+        double lr = drive.Controller.getLeftX() + axis0Offset / 2;
         lr = lr * 0.5;
-        double leftDriveValue = fb - lr;
-        double rightDriveValue = fb + lr;
+        double leftDriveValue = -fb + lr;
+        double rightDriveValue = -fb - lr;
         Dash.set("lr", lr);
 
         states.LeftDriveMotors = leftDriveValue;

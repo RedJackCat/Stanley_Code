@@ -10,16 +10,16 @@ package com.disastrousdata.controllers;
 
 
 public enum ControllerButtons implements Controller {
-    A(0),
-    B(1),
-    X(2),
-    Y(3),
-    LEFT_BUMPER(4),
-    RIGHT_BUMPER(5),
-    BACK(6),
-    START(7),
-    LEFT_STICK(8),
-    RIGHT_STICK(9);
+    A(1),
+    B(2),
+    X(3),
+    Y(4),
+    LEFT_BUMPER(5),
+    RIGHT_BUMPER(6),
+    BACK(7),
+    START(8),
+    LEFT_STICK(9),
+    RIGHT_STICK(10);
 
     public final int buttonId;
 
